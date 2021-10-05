@@ -58,6 +58,7 @@ resources:
    properties:
      hdi-service-name: ${service-name}
 
+  
 
  - name: CAPtutNodeJS-uaa
    type: org.cloudfoundry.managed-service
@@ -77,4 +78,5 @@ resources:
            description: View Risks
            role-template-references:
              - $XSAPPNAME.RiskViewer
+             
 
