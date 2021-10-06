@@ -8,15 +8,24 @@
   "dependencies": {
     "@sap/cds": "^5",
     "express": "^4",
-    "passport": "^0.5.0"
+    "hdb": "^0.18.1",
+    "passport": "^0.4.1"
   },
   "devDependencies": {
-    "@sap/ux-specification": "^1.90.10",
+    "@sap/ux-specification": "^1.84.4",
     "sqlite3": "^5.0.2"
   },
-  "scripts": {
-    "start": "cds run"
+  "engines": {
+    "node": ">=14"
   },
+  "scripts": {
+    "start": "cds run",
+    "watch-mitigations": "cds watch --open mitigations/webapp/index.html#fe-lrop-v4"
+  },
+  "sapux": [
+    "app/risks",
+    "app/mitigations"
+  ],
   "eslintConfig": {
     "extends": "eslint:recommended",
     "env": {
@@ -42,8 +51,14 @@
       "require-atomic-updates": "off"
     }
   },
-  "sapux": [
-    "app/risks",
-    "app/mitigations"
-  ]
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sql"
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    }
+  }
 }
